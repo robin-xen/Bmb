@@ -21,3 +21,6 @@ if status is-interactive
     zoxide init fish | source
 end
 
+
+# opencode
+fish_add_path /home/robin/.opencode/bin
