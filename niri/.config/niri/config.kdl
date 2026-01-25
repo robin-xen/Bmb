@@ -87,7 +87,7 @@ screenshot-path "~/Pictures/Screenshots/screenshot-%Y-%m-%d_%H-%M-%S.png"
 binds {
     Mod+I { spawn "alacritty"; }
     Mod+E { spawn "thunar"; }
-    Mod+Y { spawn "zen-browser" "--no-remote"; }
+    Mod+Y { spawn "zen-browser" "--new-window"; }
     Mod+Q { spawn "brave" "--force-dark-mode" "--enable-features=WebUIDarkMode"; }
     Mod+O { spawn "~/.config/rofi/launchers/type-2/launcher.sh"; }
     Mod+P { spawn "protonvpn-app"; } 
