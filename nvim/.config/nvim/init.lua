@@ -14,37 +14,36 @@ require("lazy").setup({
   -- ───────────────────────────────────────────────────────────────────────────
   -- Themes
   -- ───────────────────────────────────────────────────────────────────────────
+-- ───────────────────────────────────────────────────────────────────────────
+  -- Themes
+  -- ───────────────────────────────────────────────────────────────────────────
 
-  -- TokyoNight
+  -- TokyoNight (Supports a beautiful Light Mode called 'day')
   {
     "folke/tokyonight.nvim",
     lazy = false,
     priority = 1000,
     config = function()
       require("tokyonight").setup({
-        transparent = true,
+        style = "day", -- Force it to use the light mode variant
+        transparent = false, -- Disabled transparency so your light theme renders accurately
         styles = {
-          sidebars = "transparent",
-          floats = "transparent",
+          sidebars = "dark",
+          floats = "dark",
         },
       })
+      
+      -- Tell Neovim to use light mode globally and apply the colorscheme
+      vim.o.background = "light"
+      vim.cmd.colorscheme("tokyonight-day")
     end,
   },
 
-  -- Nightfox (Carbonfox)
-  {
-    "EdenEast/nightfox.nvim",
-    priority = 1000,
-    config = function()
-      require("nightfox").setup({
-        options = {
-          transparent = true,
-        },
-      })
-      -- Default theme (change if you want)
-      vim.cmd.colorscheme("carbonfox")
-    end,
-  },
+  -- Nightfox (Commented out so it doesn't conflict)
+  -- {
+  --   "EdenEast/nightfox.nvim",
+  --   priority = 1000,
+  -- },
 
   -- ───────────────────────────────────────────────────────────────────────────
   -- File Explorer

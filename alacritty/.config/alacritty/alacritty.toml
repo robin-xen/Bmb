@@ -6,12 +6,12 @@ bold_italic = { family = "JetBrainsMono Nerd Font", style = "Bold Italic" }
 size = 14.0
 
 [colors.primary]
-background = "#1e1e2e" # Rich dark charcoal grey
-foreground = "#cdd6f4" # Crisp, readable light text
+background = "#000000" # Rich dark charcoal grey
+foreground = "#FFFFFF" # Crisp, readable light text
 
 [colors.cursor]
 text = "#1e1e2e"
-cursor = "#f5e0dc"
+cursor = "#f5e0cd"
 [colors.normal]
 black = "#000000"
 red = "#AA0000"
