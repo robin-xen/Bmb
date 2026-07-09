@@ -1,4 +1,3 @@
-
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -14,9 +13,6 @@ require("lazy").setup({
   -- ───────────────────────────────────────────────────────────────────────────
   -- Themes
   -- ───────────────────────────────────────────────────────────────────────────
--- ───────────────────────────────────────────────────────────────────────────
-  -- Themes
-  -- ───────────────────────────────────────────────────────────────────────────
 
   -- TokyoNight (Supports a beautiful Light Mode called 'day')
   {
@@ -25,25 +21,28 @@ require("lazy").setup({
     priority = 1000,
     config = function()
       require("tokyonight").setup({
-        style = "day", -- Force it to use the light mode variant
-        transparent = false, -- Disabled transparency so your light theme renders accurately
+        transparent = true,
         styles = {
-          sidebars = "dark",
-          floats = "dark",
+          sidebars = "transparent",
+          floats = "transparent",
         },
       })
-      
-      -- Tell Neovim to use light mode globally and apply the colorscheme
-      vim.o.background = "light"
-      vim.cmd.colorscheme("tokyonight-day")
     end,
   },
 
-  -- Nightfox (Commented out so it doesn't conflict)
-  -- {
-  --   "EdenEast/nightfox.nvim",
-  --   priority = 1000,
-  -- },
+  {
+    "EdenEast/nightfox.nvim",
+    priority = 1000,
+    config = function()
+      require("nightfox").setup({
+        options = {
+          transparent = true,
+        },
+      })
+      -- Default theme
+      vim.cmd.colorscheme("carbonfox")
+    end,
+  },
 
   -- ───────────────────────────────────────────────────────────────────────────
   -- File Explorer
@@ -192,6 +191,7 @@ cmp.setup({
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+-- Native Neovim LSP setup structure (0.11+)
 vim.lsp.config.clangd = {
   cmd = {
     "clangd",
