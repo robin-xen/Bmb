@@ -54,7 +54,7 @@ else
 fi
 
 # Install official repo packages
-sudo pacman -S git stow fish terraform gcc sof-firmware ffmpegthumbnailer tumbler clang cmake gdb neovim tmux docker kubectl zip unzip p7zip unrar file tree less ripgrep htop ncdu lsof strace yazi nmap  rsync openssh tldr yt-dlp mpv aria2 curl wget brightnessctl wl-clipboard libvirt qemu-full virt-manager dnsmasq iptables-nft hyprland xdg-desktop-portal-hyprland waybar rofi alacritty hyprpaper grim slurp keyd pipewire pipewire-alsa pipewire-pulse pipewire-jack wireplumber rtkit bluez bluez-utils blueman ttf-jetbrains-mono-nerd ttf-fira-code-nerd thunar firefox vlc obs-studio blender evince networkmanager network-manager-applet acpid flatpak tlp adwaita-icon-theme swaync cliphist
+sudo pacman -S git stow fish sddm terraform gcc sof-firmware ffmpegthumbnailer tumbler clang cmake gdb neovim tmux docker kubectl zip unzip p7zip unrar file tree less ripgrep htop ncdu lsof strace yazi nmap  rsync openssh tldr yt-dlp mpv aria2 curl wget brightnessctl wl-clipboard libvirt qemu-full virt-manager dnsmasq iptables-nft hyprland xdg-desktop-portal-hyprland waybar rofi alacritty hyprpaper grim slurp keyd pipewire pipewire-alsa pipewire-pulse pipewire-jack wireplumber rtkit bluez discord telegram-desktop bluez-utils blueman ttf-jetbrains-mono-nerd ttf-firacode-nerd nautilus firefox vlc obs-studio blender evince networkmanager network-manager-applet acpid flatpak tlp adwaita-icon-theme swaync cliphist
 # Install AUR packages
 log_info "Installing AUR packages..."
 AUR_PACKAGES=(
@@ -63,6 +63,7 @@ AUR_PACKAGES=(
     proton-vpn-gtk-app
     swayosd-git
     gammastep
+    noctalia-git
     zen-browser-bin
 )
 
@@ -83,6 +84,7 @@ sudo systemctl enable --now docker
 sudo usermod -aG docker "$USER"
 log_info "Docker enabled and user added to docker group"
 
+sudo systemctl enable --now sddm
 # Libvirt/KVM
 sudo systemctl enable --now libvirtd
 sudo systemctl enable --now virtlogd
@@ -110,9 +112,6 @@ log_info "PipeWire services enabled"
 # Flatpak setup
 log_info "Setting up Flatpak..."
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-
-
-
 # Configure Hyprland portal
 log_info "Configuring XDG portals for Hyprland..."
 mkdir -p ~/.config/xdg-desktop-portal
