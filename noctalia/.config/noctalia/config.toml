@@ -14,5 +14,5 @@ radius_bottom_left = 0
 radius_bottom_right = 0
 
 start = ["workspaces", "taskbar"]
-center = ["clock"]
-end = ["control-center", "volume", "bluetooth", "network", "battery", "session"]
+center = ["clock", "control-center"]
+end = [ "volume", "bluetooth", "network", "battery", "session"]

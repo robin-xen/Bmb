@@ -37,4 +37,4 @@ program = "/usr/bin/tmux"
 args = ["new-session", "-A", "-s", "main"]
 
 [window]
-opacity = 0.6
+opacity = 1
