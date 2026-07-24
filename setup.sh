@@ -54,7 +54,7 @@ else
 fi
 
 # Install official repo packages
-sudo pacman -S git stow fish sddm proton-vpn-gtk-app gcc sof-firmware ffmpegthumbnailer cmake gdb neovim tmux zip unzip p7zip unrar file tree less ripgrep htop ncdu lsof strace rsync openssh tldr yt-dlp mpv aria2 curl wget brightnessctl wl-clipboard dnsmasq iptables-nft hyprland xdg-desktop-portal-hyprland waybar rofi alacritty hyprpaper grim slurp keyd pipewire pipewire-alsa pipewire-pulse pipewire-jack wireplumber rtkit bluez telegram-desktop bluez-utils blueman ttf-jetbrains-mono-nerd ttf-firacode-nerd nautilus evince networkmanager network-manager-applet acpid flatpak tlp adwaita-icon-theme swaync cliphist
+sudo pacman -S git polkit polkit-gnome xdg-desktop-portal-gtk gvfs pavucontrol fastfetch stow fish sddm proton-vpn-gtk-app gcc sof-firmware ffmpegthumbnailer cmake gdb neovim tmux zip unzip p7zip unrar file tree less ripgrep htop ncdu lsof strace rsync openssh tldr yt-dlp mpv aria2 curl wget brightnessctl wl-clipboard dnsmasq iptables-nft hyprland xdg-desktop-portal-hyprland waybar rofi alacritty hyprpaper grim slurp keyd pipewire pipewire-alsa pipewire-pulse pipewire-jack wireplumber rtkit bluez telegram-desktop bluez-utils blueman ttf-jetbrains-mono-nerd ttf-firacode-nerd nautilus evince networkmanager network-manager-applet acpid flatpak tlp adwaita-icon-theme swaync cliphist
 # Install AUR packages
 log_info "Installing AUR packages..."
 AUR_PACKAGES=(
