@@ -54,13 +54,10 @@ else
 fi
 
 # Install official repo packages
-sudo pacman -S git stow fish sddm terraform gcc sof-firmware ffmpegthumbnailer tumbler clang cmake gdb neovim tmux docker kubectl zip unzip p7zip unrar file tree less ripgrep htop ncdu lsof strace yazi nmap  rsync openssh tldr yt-dlp mpv aria2 curl wget brightnessctl wl-clipboard libvirt qemu-full virt-manager dnsmasq iptables-nft hyprland xdg-desktop-portal-hyprland waybar rofi alacritty hyprpaper grim slurp keyd pipewire pipewire-alsa pipewire-pulse pipewire-jack wireplumber rtkit bluez discord telegram-desktop bluez-utils blueman ttf-jetbrains-mono-nerd ttf-firacode-nerd nautilus firefox vlc obs-studio blender evince networkmanager network-manager-applet acpid flatpak tlp adwaita-icon-theme swaync cliphist
+sudo pacman -S git stow fish sddm proton-vpn-gtk-app gcc sof-firmware ffmpegthumbnailer cmake gdb neovim tmux zip unzip p7zip unrar file tree less ripgrep htop ncdu lsof strace rsync openssh tldr yt-dlp mpv aria2 curl wget brightnessctl wl-clipboard dnsmasq iptables-nft hyprland xdg-desktop-portal-hyprland waybar rofi alacritty hyprpaper grim slurp keyd pipewire pipewire-alsa pipewire-pulse pipewire-jack wireplumber rtkit bluez telegram-desktop bluez-utils blueman ttf-jetbrains-mono-nerd ttf-firacode-nerd nautilus evince networkmanager network-manager-applet acpid flatpak tlp adwaita-icon-theme swaync cliphist
 # Install AUR packages
 log_info "Installing AUR packages..."
 AUR_PACKAGES=(
-    brave-bin
-    google-chrome
-    proton-vpn-gtk-app
     swayosd-git
     gammastep
     noctalia-git
@@ -79,23 +76,9 @@ log_info "Enabling systemd services..."
 sudo systemctl enable --now NetworkManager
 log_info "NetworkManager enabled"
 
-# Docker
-sudo systemctl enable --now docker
-sudo usermod -aG docker "$USER"
-log_info "Docker enabled and user added to docker group"
 
 sudo systemctl enable --now sddm
-# Libvirt/KVM
-sudo systemctl enable --now libvirtd
-sudo systemctl enable --now virtlogd
-sudo usermod -aG libvirt "$USER"
-sudo usermod -aG kvm "$USER"
-log_info "Libvirt enabled and user added to libvirt/kvm groups"
 
-# Start default network for libvirt
-sudo virsh net-autostart default 2>/dev/null || true
-sudo virsh net-start default 2>/dev/null || true
-log_info "Libvirt default network configured"
 
 # Bluetooth
 sudo systemctl enable --now bluetooth
